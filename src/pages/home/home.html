@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><ion-icon name="home"></ion-icon> 
+      Página Inicial
+    </ion-title>
+    <ion-buttons end>
+    	<button ion-button (click)="goCadastro()" icon-left>
+  		<p>
+  		<ion-icon name="add"></ion-icon>
+  		Adicionar
+  		</p>
+  		</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-list *ngFor="let contato of contatos">
+             <ion-item-sliding>
+                   <ion-item>
+                   		<ion-label>
+                   		<h1>{{contato.nome}}</h1>
+                   		<p style="text-align: right; color:blue">{{contato.tell}}</p>
+                   		<p style="text-align: left; color:gray">{{contato.email}}</p>
+                   		</ion-label>
+                        
+                   </ion-item>
+                   <ion-item-options side="left">
+                         <button ion-button color="danger" (click)="deletarPerfil(contato.id)">
+                              <h1><ion-icon name="trash"></ion-icon></h1>
+                         </button> 
+                         <button ion-button color="primary" (click)="goEdit(contato)">
+                               <h1><ion-icon name="create"></ion-icon></h1>
+                         </button>
+                   </ion-item-options>
+                   <ion-item-options side="right">
+                         <button ion-button color="secondary" (click)="Call(contato.tell)">
+                               <h1><ion-icon name="call"></ion-icon></h1>
+                         </button>
+                   </ion-item-options>
+             </ion-item-sliding>
+       </ion-list>
+</ion-content>
